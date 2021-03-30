@@ -33,6 +33,6 @@ if (!branchName.startsWith('_')) {
 }
 
 branchName = branchName.substring(1)
-if (!/^[a-zA-Z0-9_]+$/.test(branchName)) {
-    core.setFailed(`Description after JIRA id should use underscore as word separator, found ${branchName}.`)
+if (!/^[a-zA-Z0-9\-]+$/.test(branchName)) {
+    core.setFailed(`Description after JIRA id should use hyphen as word separator, found ${branchName}.`)
 }

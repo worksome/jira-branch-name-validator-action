@@ -427,8 +427,8 @@ if (rawJiraId.length !== jiraId.toString().length) {
 }
 
 branchName = branchName.substring(rawJiraId.length)
-if (!branchName.startsWith('-')) {
-    core.setFailed(`Separator after JIRA id is not \`-\`, found ${branchName.substring(0, 1)}.`)
+if (!branchName.startsWith('_')) {
+    core.setFailed(`Separator after JIRA id is not \`_\`, found ${branchName.substring(0, 1)}.`)
     return
 }
 

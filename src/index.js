@@ -2,6 +2,7 @@ const core = require('@actions/core')
 
 let branchName = core.getInput("branch-name")
 core.info(`Received the following branch name ${branchName}.`)
+core.info("The format should be `JIRA-123_fixing-bug`.")
 
 if (!branchName.startsWith('JIRA')) {
     core.setFailed(`Branch doesn't start with \`JIRA\` prefix, found ${branchName}.`)
@@ -35,4 +36,8 @@ if (!branchName.startsWith('_')) {
 branchName = branchName.substring(1)
 if (!/^[a-zA-Z0-9\-]+$/.test(branchName)) {
     core.setFailed(`Description after JIRA id should use hyphen as word separator, found ${branchName}.`)
+}
+
+if (branchName.length > 40) {
+    core.setFailed(`Description after JIRA id has to be shorter than 40 characters, found ${branchName}.`)
 }

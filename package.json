@@ -1,0 +1,23 @@
+{
+  "name": "jira-branch-name-validator-action",
+  "version": "1.0.0",
+  "description": "A GitHub action for validating if the branch name is contains JIRA id",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worksome/jira-branch-name-validator-action.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/worksome/jira-branch-name-validator-action/issues"
+  },
+  "homepage": "https://github.com/worksome/jira-branch-name-validator-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6"
+  }
+}

@@ -1,0 +1,12 @@
+name: 'Validate JIRA branch name'
+description: 'Validates if the branch name contains JIRA'
+inputs:
+  branch-name:
+    description: The name of the branch to validate against
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'git-branch'
+  color: 'gray-dark'

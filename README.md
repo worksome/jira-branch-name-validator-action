@@ -10,7 +10,7 @@ A GitHub action for validating if the branch name is contains JIRA id
 ## Example usage
 
 ```
-uses: worksome/jira-branch-name-validator-action@master
+uses: worksome/jira-branch-name-validator-action@main
 with:
   branch-name: $BRANCH_NAME
 ```

@@ -17,7 +17,7 @@ if (!branchName.startsWith('-')) {
 branchName = branchName.substring(1);
 const rawJiraId = branchName.match(/^\d*/)[0]
 const jiraId = parseInt(rawJiraId)
-if (isNaN(jiraId) || jiraId === 0 || rawJiraId.length === jiraId.toString().length) {
+if (isNaN(jiraId) || jiraId === 0 || rawJiraId.length !== jiraId.toString().length) {
     core.setFailed(`JIRA id is not a valid number, found ${rawJiraId}.`)
     return
 }

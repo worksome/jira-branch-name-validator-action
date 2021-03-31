@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "ncc build src/index.js"
+    "build": "ncc build src/index.js -o dist/github && ncc build src/pre-commit.js -o dist/local"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "homepage": "https://github.com/worksome/jira-branch-name-validator-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.6"
+  },
+  "devDependencies": {
+    "string.prototype.startswith": "^1.0.0"
   }
 }

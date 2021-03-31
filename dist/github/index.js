@@ -1,11 +1,11 @@
 module.exports =
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 604:
+/***/ 448:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
@@ -16,7 +16,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(245);
+const utils_1 = __nccwpck_require__(42);
 /**
  * Commands
  *
@@ -88,10 +88,9 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 127:
+/***/ 456:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -110,9 +109,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const command_1 = __nccwpck_require__(604);
-const file_command_1 = __nccwpck_require__(352);
-const utils_1 = __nccwpck_require__(245);
+const command_1 = __nccwpck_require__(448);
+const file_command_1 = __nccwpck_require__(423);
+const utils_1 = __nccwpck_require__(42);
 const os = __importStar(__nccwpck_require__(87));
 const path = __importStar(__nccwpck_require__(622));
 /**
@@ -333,10 +332,9 @@ exports.getState = getState;
 
 /***/ }),
 
-/***/ 352:
+/***/ 423:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 // For internal use, subject to change.
 var __importStar = (this && this.__importStar) || function (mod) {
@@ -351,7 +349,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(747));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(245);
+const utils_1 = __nccwpck_require__(42);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -369,10 +367,9 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 245:
+/***/ 42:
 /***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -395,59 +392,71 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 
-/***/ 96:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
+/***/ 708:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
 
-const core = __nccwpck_require__(127)
+// ESM COMPAT FLAG
+__nccwpck_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./src/validator.js
+/* harmony default export */ function validator(branchName) {
+
+    let result = []
+
+    if (!branchName.startsWith('JIRA')) {
+        result.push(`Branch doesn't start with \`JIRA\` prefix, found ${branchName}.`)
+    }
+
+    branchName = branchName.substring(4)
+    if (!branchName.startsWith('-')) {
+        result.push(`Separator after prefix is not \`-\`, found ${branchName.substring(0, 1)}.`)
+    }
+
+    branchName = branchName.substring(1);
+    const rawJiraId = branchName.match(/^\d*/)[0]
+    const jiraId = parseInt(rawJiraId)
+    if (isNaN(jiraId) || jiraId === 0) {
+        result.push(`JIRA id is not a positive number, found ${rawJiraId}.`)
+    }
+    if (rawJiraId.length !== jiraId.toString().length) {
+        result.push(`JIRA id has leading zeros, found ${rawJiraId}.`)
+    }
+
+    branchName = branchName.substring(rawJiraId.length)
+    if (!branchName.startsWith('_')) {
+        result.push(`Separator after JIRA id is not \`_\`, found ${branchName.substring(0, 1)}.`)
+    }
+
+    branchName = branchName.substring(1)
+    if (!/^[a-zA-Z0-9\-_]+$/.test(branchName)) {
+        result.push(`Description after JIRA id should use hyphen or underscore as word separator, found ${branchName}.`)
+    }
+
+    if (branchName.length > 40) {
+        result.push(`Description after JIRA id has to be shorter than 40 characters, found ${branchName}.`)
+    }
+    
+    return result
+}
+// CONCATENATED MODULE: ./src/index.js
+
+const core = __nccwpck_require__(456)
 
 let branchName = core.getInput("branch-name")
 core.info(`Received the following branch name ${branchName}.`)
 core.info("The format should be `JIRA-123_fixing-bug`.")
 
-if (!branchName.startsWith('JIRA')) {
-    core.setFailed(`Branch doesn't start with \`JIRA\` prefix, found ${branchName}.`)
-    return
-}
+const results = validator(branchName)
 
-branchName = branchName.substring(4)
-if (!branchName.startsWith('-')) {
-    core.setFailed(`Separator after prefix is not \`-\`, found ${branchName.substring(0, 1)}.`)
-    return
-}
-
-branchName = branchName.substring(1);
-const rawJiraId = branchName.match(/^\d*/)[0]
-const jiraId = parseInt(rawJiraId)
-if (isNaN(jiraId) || jiraId === 0) {
-    core.setFailed(`JIRA id is not a positive number, found ${rawJiraId}.`)
-    return
-}
-if (rawJiraId.length !== jiraId.toString().length) {
-    core.setFailed(`JIRA id has leading zeros, found ${rawJiraId}.`)
-    return
-}
-
-branchName = branchName.substring(rawJiraId.length)
-if (!branchName.startsWith('_')) {
-    core.setFailed(`Separator after JIRA id is not \`_\`, found ${branchName.substring(0, 1)}.`)
-    return
-}
-
-branchName = branchName.substring(1)
-if (!/^[a-zA-Z0-9\-_]+$/.test(branchName)) {
-    core.setFailed(`Description after JIRA id should use hyphen or underscore as word separator, found ${branchName}.`)
-}
-
-if (branchName.length > 40) {
-    core.setFailed(`Description after JIRA id has to be shorter than 40 characters, found ${branchName}.`)
-}
+results.forEach(message => {
+    core.setFailed(message)
+})
 
 /***/ }),
 
 /***/ 747:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("fs");;
 
 /***/ }),
@@ -455,7 +464,6 @@ module.exports = require("fs");;
 /***/ 87:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("os");;
 
 /***/ }),
@@ -463,7 +471,6 @@ module.exports = require("os");;
 /***/ 622:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("path");;
 
 /***/ })
@@ -500,12 +507,23 @@ module.exports = require("path");;
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nccwpck_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	__nccwpck_require__.ab = __dirname + "/";/************************************************************************/
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(96);
+/******/ 	return __nccwpck_require__(708);
 /******/ })()
 ;

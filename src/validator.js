@@ -31,8 +31,8 @@ export default function(branchName) {
         result.push(`Description after JIRA id should use hyphen or underscore as word separator, found ${branchName}.`)
     }
 
-    if (branchName.length > 40) {
-        result.push(`Description after JIRA id has to be shorter than 40 characters, found ${branchName}.`)
+    if (branchName.length > 100) {
+        result.push(`Description after JIRA id has to be shorter than 100 characters, found ${branchName}.`)
     }
     
     return result

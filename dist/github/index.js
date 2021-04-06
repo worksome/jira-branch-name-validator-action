@@ -3,7 +3,7 @@ module.exports =
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 448:
+/***/ 604:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -16,7 +16,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(42);
+const utils_1 = __nccwpck_require__(245);
 /**
  * Commands
  *
@@ -88,7 +88,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 456:
+/***/ 127:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -109,9 +109,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const command_1 = __nccwpck_require__(448);
-const file_command_1 = __nccwpck_require__(423);
-const utils_1 = __nccwpck_require__(42);
+const command_1 = __nccwpck_require__(604);
+const file_command_1 = __nccwpck_require__(352);
+const utils_1 = __nccwpck_require__(245);
 const os = __importStar(__nccwpck_require__(87));
 const path = __importStar(__nccwpck_require__(622));
 /**
@@ -332,7 +332,7 @@ exports.getState = getState;
 
 /***/ }),
 
-/***/ 423:
+/***/ 352:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -349,7 +349,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(747));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(42);
+const utils_1 = __nccwpck_require__(245);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -367,7 +367,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 42:
+/***/ 245:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -392,7 +392,7 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 
-/***/ 708:
+/***/ 803:
 /***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
 
 // ESM COMPAT FLAG
@@ -432,15 +432,15 @@ __nccwpck_require__.r(__webpack_exports__);
         result.push(`Description after JIRA id should use hyphen or underscore as word separator, found ${branchName}.`)
     }
 
-    if (branchName.length > 40) {
-        result.push(`Description after JIRA id has to be shorter than 40 characters, found ${branchName}.`)
+    if (branchName.length > 100) {
+        result.push(`Description after JIRA id has to be shorter than 100 characters, found ${branchName}.`)
     }
     
     return result
 }
 // CONCATENATED MODULE: ./src/index.js
 
-const core = __nccwpck_require__(456)
+const core = __nccwpck_require__(127)
 
 let branchName = core.getInput("branch-name")
 core.info(`Received the following branch name ${branchName}.`)
@@ -524,6 +524,6 @@ module.exports = require("path");;
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(708);
+/******/ 	return __nccwpck_require__(803);
 /******/ })()
 ;

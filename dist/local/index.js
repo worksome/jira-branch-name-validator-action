@@ -3,14 +3,14 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 371:
+/***/ 679:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(20);
+var GetIntrinsic = __nccwpck_require__(8);
 
-var callBind = __nccwpck_require__(935);
+var callBind = __nccwpck_require__(118);
 
 var $indexOf = callBind(GetIntrinsic('String.prototype.indexOf'));
 
@@ -25,13 +25,13 @@ module.exports = function callBoundIntrinsic(name, allowMissing) {
 
 /***/ }),
 
-/***/ 935:
+/***/ 118:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var bind = __nccwpck_require__(779);
-var GetIntrinsic = __nccwpck_require__(20);
+var bind = __nccwpck_require__(985);
+var GetIntrinsic = __nccwpck_require__(8);
 
 var $apply = GetIntrinsic('%Function.prototype.apply%');
 var $call = GetIntrinsic('%Function.prototype.call%');
@@ -79,18 +79,18 @@ if ($defineProperty) {
 
 /***/ }),
 
-/***/ 923:
+/***/ 428:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(20);
+var GetIntrinsic = __nccwpck_require__(8);
 
 var $match = GetIntrinsic('%Symbol.match%', true);
 
-var hasRegExpMatcher = __nccwpck_require__(78);
+var hasRegExpMatcher = __nccwpck_require__(289);
 
-var ToBoolean = __nccwpck_require__(440);
+var ToBoolean = __nccwpck_require__(310);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-isregexp
 
@@ -110,17 +110,17 @@ module.exports = function IsRegExp(argument) {
 
 /***/ }),
 
-/***/ 881:
+/***/ 515:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-module.exports = __nccwpck_require__(697);
+module.exports = __nccwpck_require__(352);
 
 
 /***/ }),
 
-/***/ 440:
+/***/ 310:
 /***/ ((module) => {
 
 
@@ -132,14 +132,14 @@ module.exports = function ToBoolean(value) { return !!value; };
 
 /***/ }),
 
-/***/ 220:
+/***/ 802:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var ES5ToInteger = __nccwpck_require__(120);
+var ES5ToInteger = __nccwpck_require__(490);
 
-var ToNumber = __nccwpck_require__(359);
+var ToNumber = __nccwpck_require__(771);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-tointeger
 
@@ -151,21 +151,21 @@ module.exports = function ToInteger(value) {
 
 /***/ }),
 
-/***/ 359:
+/***/ 771:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(20);
+var GetIntrinsic = __nccwpck_require__(8);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 var $Number = GetIntrinsic('%Number%');
 var $RegExp = GetIntrinsic('%RegExp%');
 var $parseInteger = GetIntrinsic('%parseInt%');
 
-var callBound = __nccwpck_require__(371);
-var regexTester = __nccwpck_require__(107);
-var isPrimitive = __nccwpck_require__(219);
+var callBound = __nccwpck_require__(679);
+var regexTester = __nccwpck_require__(288);
+var isPrimitive = __nccwpck_require__(70);
 
 var $strSlice = callBound('String.prototype.slice');
 var isBinary = regexTester(/^0b[01]+$/i);
@@ -188,7 +188,7 @@ var $trim = function (value) {
 	return $replace(value, trimRegex, '');
 };
 
-var ToPrimitive = __nccwpck_require__(458);
+var ToPrimitive = __nccwpck_require__(638);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-tonumber
 
@@ -217,12 +217,12 @@ module.exports = function ToNumber(argument) {
 
 /***/ }),
 
-/***/ 458:
+/***/ 638:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var toPrimitive = __nccwpck_require__(66);
+var toPrimitive = __nccwpck_require__(692);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-toprimitive
 
@@ -236,12 +236,12 @@ module.exports = function ToPrimitive(input) {
 
 /***/ }),
 
-/***/ 481:
+/***/ 192:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(20);
+var GetIntrinsic = __nccwpck_require__(8);
 
 var $String = GetIntrinsic('%String%');
 var $TypeError = GetIntrinsic('%TypeError%');
@@ -258,12 +258,12 @@ module.exports = function ToString(argument) {
 
 /***/ }),
 
-/***/ 697:
+/***/ 352:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(20);
+var GetIntrinsic = __nccwpck_require__(8);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
@@ -279,18 +279,18 @@ module.exports = function CheckObjectCoercible(value, optMessage) {
 
 /***/ }),
 
-/***/ 120:
+/***/ 490:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var abs = __nccwpck_require__(26);
-var floor = __nccwpck_require__(106);
-var ToNumber = __nccwpck_require__(123);
+var abs = __nccwpck_require__(478);
+var floor = __nccwpck_require__(818);
+var ToNumber = __nccwpck_require__(215);
 
-var $isNaN = __nccwpck_require__(526);
-var $isFinite = __nccwpck_require__(795);
-var $sign = __nccwpck_require__(809);
+var $isNaN = __nccwpck_require__(375);
+var $isFinite = __nccwpck_require__(147);
+var $sign = __nccwpck_require__(334);
 
 // http://262.ecma-international.org/5.1/#sec-9.4
 
@@ -304,12 +304,12 @@ module.exports = function ToInteger(value) {
 
 /***/ }),
 
-/***/ 123:
+/***/ 215:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var ToPrimitive = __nccwpck_require__(262);
+var ToPrimitive = __nccwpck_require__(373);
 
 // http://262.ecma-international.org/5.1/#sec-9.3
 
@@ -331,24 +331,24 @@ module.exports = function ToNumber(value) {
 
 /***/ }),
 
-/***/ 262:
+/***/ 373:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 // http://262.ecma-international.org/5.1/#sec-9.1
 
-module.exports = __nccwpck_require__(333);
+module.exports = __nccwpck_require__(354);
 
 
 /***/ }),
 
-/***/ 26:
+/***/ 478:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(20);
+var GetIntrinsic = __nccwpck_require__(8);
 
 var $abs = GetIntrinsic('%Math.abs%');
 
@@ -361,7 +361,7 @@ module.exports = function abs(x) {
 
 /***/ }),
 
-/***/ 106:
+/***/ 818:
 /***/ ((module) => {
 
 
@@ -379,19 +379,19 @@ module.exports = function floor(x) {
 
 /***/ }),
 
-/***/ 600:
+/***/ 393:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 // TODO; semver-major: remove
 
-module.exports = __nccwpck_require__(371);
+module.exports = __nccwpck_require__(679);
 
 
 /***/ }),
 
-/***/ 795:
+/***/ 147:
 /***/ ((module) => {
 
 
@@ -403,7 +403,7 @@ module.exports = Number.isFinite || function (x) { return typeof x === 'number' 
 
 /***/ }),
 
-/***/ 526:
+/***/ 375:
 /***/ ((module) => {
 
 
@@ -415,7 +415,7 @@ module.exports = Number.isNaN || function isNaN(a) {
 
 /***/ }),
 
-/***/ 219:
+/***/ 70:
 /***/ ((module) => {
 
 
@@ -427,16 +427,16 @@ module.exports = function isPrimitive(value) {
 
 /***/ }),
 
-/***/ 107:
+/***/ 288:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(20);
+var GetIntrinsic = __nccwpck_require__(8);
 
 var $test = GetIntrinsic('RegExp.prototype.test');
 
-var callBind = __nccwpck_require__(935);
+var callBind = __nccwpck_require__(118);
 
 module.exports = function regexTester(regex) {
 	return callBind($test, regex);
@@ -445,7 +445,7 @@ module.exports = function regexTester(regex) {
 
 /***/ }),
 
-/***/ 809:
+/***/ 334:
 /***/ ((module) => {
 
 
@@ -457,17 +457,17 @@ module.exports = function sign(number) {
 
 /***/ }),
 
-/***/ 66:
+/***/ 692:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
 
-var isPrimitive = __nccwpck_require__(848);
-var isCallable = __nccwpck_require__(118);
-var isDate = __nccwpck_require__(19);
-var isSymbol = __nccwpck_require__(41);
+var isPrimitive = __nccwpck_require__(816);
+var isCallable = __nccwpck_require__(331);
+var isDate = __nccwpck_require__(544);
+var isSymbol = __nccwpck_require__(183);
 
 var ordinaryToPrimitive = function OrdinaryToPrimitive(O, hint) {
 	if (typeof O === 'undefined' || O === null) {
@@ -539,16 +539,16 @@ module.exports = function ToPrimitive(input) {
 
 /***/ }),
 
-/***/ 333:
+/***/ 354:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 var toStr = Object.prototype.toString;
 
-var isPrimitive = __nccwpck_require__(848);
+var isPrimitive = __nccwpck_require__(816);
 
-var isCallable = __nccwpck_require__(118);
+var isCallable = __nccwpck_require__(331);
 
 // http://ecma-international.org/ecma-262/5.1/#sec-8.12.8
 var ES5internalSlots = {
@@ -591,7 +591,7 @@ module.exports = function ToPrimitive(input) {
 
 /***/ }),
 
-/***/ 848:
+/***/ 816:
 /***/ ((module) => {
 
 
@@ -603,7 +603,7 @@ module.exports = function isPrimitive(value) {
 
 /***/ }),
 
-/***/ 248:
+/***/ 221:
 /***/ ((module) => {
 
 
@@ -662,19 +662,19 @@ module.exports = function bind(that) {
 
 /***/ }),
 
-/***/ 779:
+/***/ 985:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var implementation = __nccwpck_require__(248);
+var implementation = __nccwpck_require__(221);
 
 module.exports = Function.prototype.bind || implementation;
 
 
 /***/ }),
 
-/***/ 20:
+/***/ 8:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -721,7 +721,7 @@ var ThrowTypeError = $gOPD
 	}())
 	: throwTypeError;
 
-var hasSymbols = __nccwpck_require__(321)();
+var hasSymbols = __nccwpck_require__(767)();
 
 var getProto = Object.getPrototypeOf || function (x) { return x.__proto__; }; // eslint-disable-line no-proto
 
@@ -875,8 +875,8 @@ var LEGACY_ALIASES = {
 	'%WeakSetPrototype%': ['WeakSet', 'prototype']
 };
 
-var bind = __nccwpck_require__(779);
-var hasOwn = __nccwpck_require__(605);
+var bind = __nccwpck_require__(985);
+var hasOwn = __nccwpck_require__(930);
 var $concat = bind.call(Function.call, Array.prototype.concat);
 var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
 var $replace = bind.call(Function.call, String.prototype.replace);
@@ -1011,13 +1011,13 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 
 /***/ }),
 
-/***/ 321:
+/***/ 767:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 var origSymbol = typeof Symbol !== 'undefined' && Symbol;
-var hasSymbolSham = __nccwpck_require__(434);
+var hasSymbolSham = __nccwpck_require__(191);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -1031,7 +1031,7 @@ module.exports = function hasNativeSymbols() {
 
 /***/ }),
 
-/***/ 434:
+/***/ 191:
 /***/ ((module) => {
 
 
@@ -1080,19 +1080,19 @@ module.exports = function hasSymbols() {
 
 /***/ }),
 
-/***/ 605:
+/***/ 930:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var bind = __nccwpck_require__(779);
+var bind = __nccwpck_require__(985);
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
 
 /***/ }),
 
-/***/ 118:
+/***/ 331:
 /***/ ((module) => {
 
 
@@ -1173,7 +1173,7 @@ module.exports = reflectApply
 
 /***/ }),
 
-/***/ 19:
+/***/ 544:
 /***/ ((module) => {
 
 
@@ -1202,13 +1202,13 @@ module.exports = function isDateObject(value) {
 
 /***/ }),
 
-/***/ 78:
+/***/ 289:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var callBound = __nccwpck_require__(371);
-var hasSymbols = __nccwpck_require__(321)();
+var callBound = __nccwpck_require__(679);
+var hasSymbols = __nccwpck_require__(767)();
 var hasToStringTag = hasSymbols && typeof Symbol.toStringTag === 'symbol';
 var has;
 var $exec;
@@ -1268,13 +1268,13 @@ module.exports = hasToStringTag
 
 /***/ }),
 
-/***/ 41:
+/***/ 183:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 var toStr = Object.prototype.toString;
-var hasSymbols = __nccwpck_require__(321)();
+var hasSymbols = __nccwpck_require__(767)();
 
 if (hasSymbols) {
 	var symToStr = Symbol.prototype.toString;
@@ -1310,18 +1310,18 @@ if (hasSymbols) {
 
 /***/ }),
 
-/***/ 504:
+/***/ 865:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /*! https://mths.be/startswith v1.0.0 by @mathias */
 
 
 
-var callBound = __nccwpck_require__(600);
-var RequireObjectCoercible = __nccwpck_require__(881);
-var ToString = __nccwpck_require__(481);
-var IsRegExp = __nccwpck_require__(923);
-var ToInteger = __nccwpck_require__(220);
+var callBound = __nccwpck_require__(393);
+var RequireObjectCoercible = __nccwpck_require__(515);
+var ToString = __nccwpck_require__(192);
+var IsRegExp = __nccwpck_require__(428);
+var ToInteger = __nccwpck_require__(802);
 
 var StringCharCodeAt = callBound('String.prototype.charCodeAt');
 var max = Math.max;
@@ -1356,7 +1356,7 @@ module.exports = function startsWith(searchString) {
 
 /***/ }),
 
-/***/ 652:
+/***/ 53:
 /***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
 
 // ESM COMPAT FLAG
@@ -1398,8 +1398,8 @@ const external_vm_namespaceObject = require("vm");;
         result.push(`Description after JIRA id should use hyphen or underscore as word separator, found ${branchName}.`)
     }
 
-    if (branchName.length > 40) {
-        result.push(`Description after JIRA id has to be shorter than 40 characters, found ${branchName}.`)
+    if (branchName.length > 100) {
+        result.push(`Description after JIRA id has to be shorter than 100 characters, found ${branchName}.`)
     }
     
     return result
@@ -1407,7 +1407,7 @@ const external_vm_namespaceObject = require("vm");;
 // CONCATENATED MODULE: ./src/pre-commit.js
 
 
-const startsWith = __nccwpck_require__(504);
+const startsWith = __nccwpck_require__(865);
 const childProcessExec = __nccwpck_require__(129).exec;
 const util = __nccwpck_require__(669);
 
@@ -1428,6 +1428,7 @@ run();
 async function run(){
   const branchName = await getCurrentBranch();
   const results = validator(branchName);
+  
   results.forEach(message => {
     console.log(message);
   })
@@ -1511,6 +1512,6 @@ module.exports = require("util");;
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(652);
+/******/ 	return __nccwpck_require__(53);
 /******/ })()
 ;

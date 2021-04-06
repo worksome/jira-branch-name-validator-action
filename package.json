@@ -1,6 +1,6 @@
 {
-  "name": "jira-branch-name-validator-action",
-  "version": "1.5.1",
+  "name": "@worksome/jira-branch-name-validator",
+  "version": "1.6.1",
   "description": "A GitHub action for validating if the branch name is contains JIRA id",
   "main": "index.js",
   "scripts": {

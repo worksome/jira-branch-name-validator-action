@@ -1,4 +1,6 @@
-#!/usr/bin/env nodemodule.exports =
+#!/usr/bin/env node
+
+module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({

@@ -3,7 +3,6 @@
 const startsWith = require('string.prototype.startswith/implementation');
 const childProcessExec = require('child_process').exec;
 const util = require('util');
-import { runInContext } from 'vm';
 import validateBranchName from './validator';
 
 const exec = util.promisify(childProcessExec);

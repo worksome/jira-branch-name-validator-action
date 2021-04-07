@@ -1356,14 +1356,12 @@ module.exports = function startsWith(searchString) {
 
 /***/ }),
 
-/***/ 53:
+/***/ 40:
 /***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
 
 // ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: external "vm"
-const external_vm_namespaceObject = require("vm");;
 // CONCATENATED MODULE: ./src/validator.js
 /* harmony default export */ function validator(branchName) {
 
@@ -1410,7 +1408,6 @@ const external_vm_namespaceObject = require("vm");;
 const startsWith = __nccwpck_require__(865);
 const childProcessExec = __nccwpck_require__(129).exec;
 const util = __nccwpck_require__(669);
-
 
 
 const exec = util.promisify(childProcessExec);
@@ -1512,6 +1509,6 @@ module.exports = require("util");;
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(53);
+/******/ 	return __nccwpck_require__(40);
 /******/ })()
 ;

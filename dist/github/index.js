@@ -1,9 +1,8 @@
-module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 604:
+/***/ 777:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -16,7 +15,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(245);
+const utils_1 = __nccwpck_require__(855);
 /**
  * Commands
  *
@@ -88,7 +87,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 127:
+/***/ 181:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -109,9 +108,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const command_1 = __nccwpck_require__(604);
-const file_command_1 = __nccwpck_require__(352);
-const utils_1 = __nccwpck_require__(245);
+const command_1 = __nccwpck_require__(777);
+const file_command_1 = __nccwpck_require__(679);
+const utils_1 = __nccwpck_require__(855);
 const os = __importStar(__nccwpck_require__(87));
 const path = __importStar(__nccwpck_require__(622));
 /**
@@ -332,7 +331,7 @@ exports.getState = getState;
 
 /***/ }),
 
-/***/ 352:
+/***/ 679:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -349,7 +348,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(747));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(245);
+const utils_1 = __nccwpck_require__(855);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -367,7 +366,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 245:
+/***/ 855:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -392,13 +391,81 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 
-/***/ 803:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
+/***/ 747:
+/***/ ((module) => {
 
+module.exports = require("fs");;
+
+/***/ }),
+
+/***/ 87:
+/***/ ((module) => {
+
+module.exports = require("os");;
+
+/***/ }),
+
+/***/ 622:
+/***/ ((module) => {
+
+module.exports = require("path");;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __nccwpck_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		var threw = true;
+/******/ 		try {
+/******/ 			__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
+/******/ 			threw = false;
+/******/ 		} finally {
+/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
+/******/ 		}
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nccwpck_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat */
+/******/ 	
+/******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
 // ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./src/validator.js
+;// CONCATENATED MODULE: ./src/validator.js
 /* harmony default export */ function validator(branchName) {
 
     let result = []
@@ -436,94 +503,72 @@ __nccwpck_require__.r(__webpack_exports__);
         result.push(`Description after JIRA id has to be shorter than 100 characters, found ${branchName}.`)
     }
     
+    return ["JIRA-" + jiraId, result]
+}
+
+
+;// CONCATENATED MODULE: ./src/jira-id-consistency-check.js
+const core = __nccwpck_require__(181)
+
+/* harmony default export */ function jira_id_consistency_check(jiraId, prTitle, commits) {
+
+    let result = []
+
+    if (prTitle.search(jiraId) < 0) {
+        result.push(`PR title <${prTitle}> does not contain Jira ID inferred from branch name, ${jiraId}`)
+        core.info(`PR title does not contain ${jiraId}`)
+    } else {
+        core.info(`PR title contains ${jiraId}`)
+    }
+
+    JSON.parse(commits).filter(c => c.commit.message.search(jiraId) < 0).forEach(c => {
+        result.push(`Commit message <${c.commit.message}> does not contain Jira ID inferred from branch name, ${jiraId}`)
+    })
+ 
     return result
 }
-// CONCATENATED MODULE: ./src/index.js
 
-const core = __nccwpck_require__(127)
 
-let branchName = core.getInput("branch-name")
-core.info(`Received the following branch name ${branchName}.`)
-core.info("The format should be `JIRA-123_fixing-bug`.")
+;// CONCATENATED MODULE: ./src/index.js
 
-const results = validator(branchName)
+
+const src_core = __nccwpck_require__(181)
+
+let branchName = src_core.getInput("branch-name")
+let prTitle = src_core.getInput("pr-title")
+let commits = src_core.getInput("commits")
+
+let prValidation = (prTitle.length > 0 && commits.length > 0) ? true : false
+
+src_core.info(`Received the following branch name: ${branchName}.`)
+src_core.info("The format should be `JIRA-123_fixing-bug`.")
+
+let [jiraId, results] = validator(branchName)
+
+src_core.info(`Extracted the following JIRA ID from branch name: ${jiraId}`)
+
+if (prValidation) {
+    src_core.info(`Received the following PR title: ${prTitle}`)
+    src_core.info("Should contain the same JIRA ID.")
+    src_core.info("Received the following commits information:")
+    JSON.parse(commits).forEach(c => {
+        src_core.info(`  ${c.commit.message}`)
+    })
+    src_core.info("Commit message(s) should contain the same JIRA ID as above.")
+    src_core.info(results.length)
+    results.concat(jira_id_consistency_check(jiraId, prTitle, commits))
+    src_core.info(results.length)
+} else {
+    src_core.info(`PR title or commits information is missing`)
+}
 
 results.forEach(message => {
-    core.setFailed(message)
+    src_core.setFailed(message)
 })
 
-/***/ }),
 
-/***/ 747:
-/***/ ((module) => {
+})();
 
-module.exports = require("fs");;
-
-/***/ }),
-
-/***/ 87:
-/***/ ((module) => {
-
-module.exports = require("os");;
-
-/***/ }),
-
-/***/ 622:
-/***/ ((module) => {
-
-module.exports = require("path");;
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __nccwpck_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
-/******/ 		}
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__nccwpck_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat */
-/******/ 	
-/******/ 	__nccwpck_require__.ab = __dirname + "/";/************************************************************************/
-/******/ 	// module exports must be returned from runtime so entry inlining is disabled
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(803);
+module.exports = __webpack_exports__;
 /******/ })()
 ;

@@ -1,18 +1,15 @@
-#!/usr/bin/env node
-
-module.exports =
-/******/ (() => { // webpackBootstrap
+#!/usr/bin/env node/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 679:
+/***/ 867:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(8);
+var GetIntrinsic = __nccwpck_require__(132);
 
-var callBind = __nccwpck_require__(118);
+var callBind = __nccwpck_require__(696);
 
 var $indexOf = callBind(GetIntrinsic('String.prototype.indexOf'));
 
@@ -27,13 +24,13 @@ module.exports = function callBoundIntrinsic(name, allowMissing) {
 
 /***/ }),
 
-/***/ 118:
+/***/ 696:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var bind = __nccwpck_require__(985);
-var GetIntrinsic = __nccwpck_require__(8);
+var bind = __nccwpck_require__(247);
+var GetIntrinsic = __nccwpck_require__(132);
 
 var $apply = GetIntrinsic('%Function.prototype.apply%');
 var $call = GetIntrinsic('%Function.prototype.call%');
@@ -81,18 +78,18 @@ if ($defineProperty) {
 
 /***/ }),
 
-/***/ 428:
+/***/ 392:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(8);
+var GetIntrinsic = __nccwpck_require__(132);
 
 var $match = GetIntrinsic('%Symbol.match%', true);
 
-var hasRegExpMatcher = __nccwpck_require__(289);
+var hasRegExpMatcher = __nccwpck_require__(78);
 
-var ToBoolean = __nccwpck_require__(310);
+var ToBoolean = __nccwpck_require__(533);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-isregexp
 
@@ -112,17 +109,17 @@ module.exports = function IsRegExp(argument) {
 
 /***/ }),
 
-/***/ 515:
+/***/ 994:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-module.exports = __nccwpck_require__(352);
+module.exports = __nccwpck_require__(801);
 
 
 /***/ }),
 
-/***/ 310:
+/***/ 533:
 /***/ ((module) => {
 
 
@@ -134,14 +131,14 @@ module.exports = function ToBoolean(value) { return !!value; };
 
 /***/ }),
 
-/***/ 802:
+/***/ 776:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var ES5ToInteger = __nccwpck_require__(490);
+var ES5ToInteger = __nccwpck_require__(422);
 
-var ToNumber = __nccwpck_require__(771);
+var ToNumber = __nccwpck_require__(277);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-tointeger
 
@@ -153,21 +150,21 @@ module.exports = function ToInteger(value) {
 
 /***/ }),
 
-/***/ 771:
+/***/ 277:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(8);
+var GetIntrinsic = __nccwpck_require__(132);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 var $Number = GetIntrinsic('%Number%');
 var $RegExp = GetIntrinsic('%RegExp%');
 var $parseInteger = GetIntrinsic('%parseInt%');
 
-var callBound = __nccwpck_require__(679);
-var regexTester = __nccwpck_require__(288);
-var isPrimitive = __nccwpck_require__(70);
+var callBound = __nccwpck_require__(867);
+var regexTester = __nccwpck_require__(312);
+var isPrimitive = __nccwpck_require__(596);
 
 var $strSlice = callBound('String.prototype.slice');
 var isBinary = regexTester(/^0b[01]+$/i);
@@ -190,7 +187,7 @@ var $trim = function (value) {
 	return $replace(value, trimRegex, '');
 };
 
-var ToPrimitive = __nccwpck_require__(638);
+var ToPrimitive = __nccwpck_require__(721);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-tonumber
 
@@ -219,12 +216,12 @@ module.exports = function ToNumber(argument) {
 
 /***/ }),
 
-/***/ 638:
+/***/ 721:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var toPrimitive = __nccwpck_require__(692);
+var toPrimitive = __nccwpck_require__(499);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-toprimitive
 
@@ -238,12 +235,12 @@ module.exports = function ToPrimitive(input) {
 
 /***/ }),
 
-/***/ 192:
+/***/ 19:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(8);
+var GetIntrinsic = __nccwpck_require__(132);
 
 var $String = GetIntrinsic('%String%');
 var $TypeError = GetIntrinsic('%TypeError%');
@@ -260,12 +257,12 @@ module.exports = function ToString(argument) {
 
 /***/ }),
 
-/***/ 352:
+/***/ 801:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(8);
+var GetIntrinsic = __nccwpck_require__(132);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
@@ -281,18 +278,18 @@ module.exports = function CheckObjectCoercible(value, optMessage) {
 
 /***/ }),
 
-/***/ 490:
+/***/ 422:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var abs = __nccwpck_require__(478);
-var floor = __nccwpck_require__(818);
-var ToNumber = __nccwpck_require__(215);
+var abs = __nccwpck_require__(667);
+var floor = __nccwpck_require__(723);
+var ToNumber = __nccwpck_require__(450);
 
-var $isNaN = __nccwpck_require__(375);
-var $isFinite = __nccwpck_require__(147);
-var $sign = __nccwpck_require__(334);
+var $isNaN = __nccwpck_require__(850);
+var $isFinite = __nccwpck_require__(504);
+var $sign = __nccwpck_require__(918);
 
 // http://262.ecma-international.org/5.1/#sec-9.4
 
@@ -306,12 +303,12 @@ module.exports = function ToInteger(value) {
 
 /***/ }),
 
-/***/ 215:
+/***/ 450:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var ToPrimitive = __nccwpck_require__(373);
+var ToPrimitive = __nccwpck_require__(677);
 
 // http://262.ecma-international.org/5.1/#sec-9.3
 
@@ -333,24 +330,24 @@ module.exports = function ToNumber(value) {
 
 /***/ }),
 
-/***/ 373:
+/***/ 677:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 // http://262.ecma-international.org/5.1/#sec-9.1
 
-module.exports = __nccwpck_require__(354);
+module.exports = __nccwpck_require__(391);
 
 
 /***/ }),
 
-/***/ 478:
+/***/ 667:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(8);
+var GetIntrinsic = __nccwpck_require__(132);
 
 var $abs = GetIntrinsic('%Math.abs%');
 
@@ -363,7 +360,7 @@ module.exports = function abs(x) {
 
 /***/ }),
 
-/***/ 818:
+/***/ 723:
 /***/ ((module) => {
 
 
@@ -381,19 +378,19 @@ module.exports = function floor(x) {
 
 /***/ }),
 
-/***/ 393:
+/***/ 920:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 // TODO; semver-major: remove
 
-module.exports = __nccwpck_require__(679);
+module.exports = __nccwpck_require__(867);
 
 
 /***/ }),
 
-/***/ 147:
+/***/ 504:
 /***/ ((module) => {
 
 
@@ -405,7 +402,7 @@ module.exports = Number.isFinite || function (x) { return typeof x === 'number' 
 
 /***/ }),
 
-/***/ 375:
+/***/ 850:
 /***/ ((module) => {
 
 
@@ -417,7 +414,7 @@ module.exports = Number.isNaN || function isNaN(a) {
 
 /***/ }),
 
-/***/ 70:
+/***/ 596:
 /***/ ((module) => {
 
 
@@ -429,16 +426,16 @@ module.exports = function isPrimitive(value) {
 
 /***/ }),
 
-/***/ 288:
+/***/ 312:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var GetIntrinsic = __nccwpck_require__(8);
+var GetIntrinsic = __nccwpck_require__(132);
 
 var $test = GetIntrinsic('RegExp.prototype.test');
 
-var callBind = __nccwpck_require__(118);
+var callBind = __nccwpck_require__(696);
 
 module.exports = function regexTester(regex) {
 	return callBind($test, regex);
@@ -447,7 +444,7 @@ module.exports = function regexTester(regex) {
 
 /***/ }),
 
-/***/ 334:
+/***/ 918:
 /***/ ((module) => {
 
 
@@ -459,17 +456,17 @@ module.exports = function sign(number) {
 
 /***/ }),
 
-/***/ 692:
+/***/ 499:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
 
-var isPrimitive = __nccwpck_require__(816);
-var isCallable = __nccwpck_require__(331);
-var isDate = __nccwpck_require__(544);
-var isSymbol = __nccwpck_require__(183);
+var isPrimitive = __nccwpck_require__(694);
+var isCallable = __nccwpck_require__(461);
+var isDate = __nccwpck_require__(788);
+var isSymbol = __nccwpck_require__(379);
 
 var ordinaryToPrimitive = function OrdinaryToPrimitive(O, hint) {
 	if (typeof O === 'undefined' || O === null) {
@@ -541,16 +538,16 @@ module.exports = function ToPrimitive(input) {
 
 /***/ }),
 
-/***/ 354:
+/***/ 391:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 var toStr = Object.prototype.toString;
 
-var isPrimitive = __nccwpck_require__(816);
+var isPrimitive = __nccwpck_require__(694);
 
-var isCallable = __nccwpck_require__(331);
+var isCallable = __nccwpck_require__(461);
 
 // http://ecma-international.org/ecma-262/5.1/#sec-8.12.8
 var ES5internalSlots = {
@@ -593,7 +590,7 @@ module.exports = function ToPrimitive(input) {
 
 /***/ }),
 
-/***/ 816:
+/***/ 694:
 /***/ ((module) => {
 
 
@@ -605,7 +602,7 @@ module.exports = function isPrimitive(value) {
 
 /***/ }),
 
-/***/ 221:
+/***/ 672:
 /***/ ((module) => {
 
 
@@ -664,19 +661,19 @@ module.exports = function bind(that) {
 
 /***/ }),
 
-/***/ 985:
+/***/ 247:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var implementation = __nccwpck_require__(221);
+var implementation = __nccwpck_require__(672);
 
 module.exports = Function.prototype.bind || implementation;
 
 
 /***/ }),
 
-/***/ 8:
+/***/ 132:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -723,7 +720,7 @@ var ThrowTypeError = $gOPD
 	}())
 	: throwTypeError;
 
-var hasSymbols = __nccwpck_require__(767)();
+var hasSymbols = __nccwpck_require__(6)();
 
 var getProto = Object.getPrototypeOf || function (x) { return x.__proto__; }; // eslint-disable-line no-proto
 
@@ -877,8 +874,8 @@ var LEGACY_ALIASES = {
 	'%WeakSetPrototype%': ['WeakSet', 'prototype']
 };
 
-var bind = __nccwpck_require__(985);
-var hasOwn = __nccwpck_require__(930);
+var bind = __nccwpck_require__(247);
+var hasOwn = __nccwpck_require__(97);
 var $concat = bind.call(Function.call, Array.prototype.concat);
 var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
 var $replace = bind.call(Function.call, String.prototype.replace);
@@ -1013,13 +1010,13 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 
 /***/ }),
 
-/***/ 767:
+/***/ 6:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 var origSymbol = typeof Symbol !== 'undefined' && Symbol;
-var hasSymbolSham = __nccwpck_require__(191);
+var hasSymbolSham = __nccwpck_require__(566);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -1033,7 +1030,7 @@ module.exports = function hasNativeSymbols() {
 
 /***/ }),
 
-/***/ 191:
+/***/ 566:
 /***/ ((module) => {
 
 
@@ -1082,19 +1079,19 @@ module.exports = function hasSymbols() {
 
 /***/ }),
 
-/***/ 930:
+/***/ 97:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var bind = __nccwpck_require__(985);
+var bind = __nccwpck_require__(247);
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
 
 /***/ }),
 
-/***/ 331:
+/***/ 461:
 /***/ ((module) => {
 
 
@@ -1175,7 +1172,7 @@ module.exports = reflectApply
 
 /***/ }),
 
-/***/ 544:
+/***/ 788:
 /***/ ((module) => {
 
 
@@ -1204,13 +1201,13 @@ module.exports = function isDateObject(value) {
 
 /***/ }),
 
-/***/ 289:
+/***/ 78:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-var callBound = __nccwpck_require__(679);
-var hasSymbols = __nccwpck_require__(767)();
+var callBound = __nccwpck_require__(867);
+var hasSymbols = __nccwpck_require__(6)();
 var hasToStringTag = hasSymbols && typeof Symbol.toStringTag === 'symbol';
 var has;
 var $exec;
@@ -1270,13 +1267,13 @@ module.exports = hasToStringTag
 
 /***/ }),
 
-/***/ 183:
+/***/ 379:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 var toStr = Object.prototype.toString;
-var hasSymbols = __nccwpck_require__(767)();
+var hasSymbols = __nccwpck_require__(6)();
 
 if (hasSymbols) {
 	var symToStr = Symbol.prototype.toString;
@@ -1312,18 +1309,18 @@ if (hasSymbols) {
 
 /***/ }),
 
-/***/ 865:
+/***/ 486:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /*! https://mths.be/startswith v1.0.0 by @mathias */
 
 
 
-var callBound = __nccwpck_require__(393);
-var RequireObjectCoercible = __nccwpck_require__(515);
-var ToString = __nccwpck_require__(192);
-var IsRegExp = __nccwpck_require__(428);
-var ToInteger = __nccwpck_require__(802);
+var callBound = __nccwpck_require__(920);
+var RequireObjectCoercible = __nccwpck_require__(994);
+var ToString = __nccwpck_require__(19);
+var IsRegExp = __nccwpck_require__(392);
+var ToInteger = __nccwpck_require__(776);
 
 var StringCharCodeAt = callBound('String.prototype.charCodeAt');
 var max = Math.max;
@@ -1358,14 +1355,75 @@ module.exports = function startsWith(searchString) {
 
 /***/ }),
 
-/***/ 40:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
+/***/ 129:
+/***/ ((module) => {
 
+module.exports = require("child_process");;
+
+/***/ }),
+
+/***/ 669:
+/***/ ((module) => {
+
+module.exports = require("util");;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __nccwpck_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		var threw = true;
+/******/ 		try {
+/******/ 			__webpack_modules__[moduleId](module, module.exports, __nccwpck_require__);
+/******/ 			threw = false;
+/******/ 		} finally {
+/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
+/******/ 		}
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nccwpck_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat */
+/******/ 	
+/******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
 // ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./src/validator.js
-/* harmony default export */ function validator(branchName) {
+;// CONCATENATED MODULE: ./src/validator.js
+/* harmony default export */ function validator(branchName, prTitle, commits) {
 
     let result = []
 
@@ -1401,13 +1459,24 @@ __nccwpck_require__.r(__webpack_exports__);
     if (branchName.length > 100) {
         result.push(`Description after JIRA id has to be shorter than 100 characters, found ${branchName}.`)
     }
+
+    if (prTitle.search("JIRA-" + jiraId) < 0) {
+        result.push(`PR title <${prTitle}> does not contain Jira ID inferred from branch name, JIRA-${jiraId}`)
+    }
+
+    commits["commit"].forEach(function(commit) {
+         if (commit.message.search("JIRA-" + jiraId) < 0) {
+             result.push(`Commit message <${commit.message}> does not contain Jira ID inferred from branch name, JIRA-${jiraId}`)
+         }
+    })
     
     return result
 }
-// CONCATENATED MODULE: ./src/pre-commit.js
+
+;// CONCATENATED MODULE: ./src/pre-commit.js
 
 
-const startsWith = __nccwpck_require__(865);
+const startsWith = __nccwpck_require__(486);
 const childProcessExec = __nccwpck_require__(129).exec;
 const util = __nccwpck_require__(669);
 
@@ -1445,72 +1514,8 @@ async function getCurrentBranch() {
     const branches = branchesOutput.stdout
     return branches.split('\n').find(b => b.trim().charAt(0) === '*' ).trim().substring(2)
 }
+})();
 
-/***/ }),
-
-/***/ 129:
-/***/ ((module) => {
-
-module.exports = require("child_process");;
-
-/***/ }),
-
-/***/ 669:
-/***/ ((module) => {
-
-module.exports = require("util");;
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __nccwpck_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			__webpack_modules__[moduleId](module, module.exports, __nccwpck_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
-/******/ 		}
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__nccwpck_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat */
-/******/ 	
-/******/ 	__nccwpck_require__.ab = __dirname + "/";/************************************************************************/
-/******/ 	// module exports must be returned from runtime so entry inlining is disabled
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(40);
+module.exports = __webpack_exports__;
 /******/ })()
 ;

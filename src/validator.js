@@ -35,5 +35,6 @@ export default function(branchName) {
         result.push(`Description after JIRA id has to be shorter than 100 characters, found ${branchName}.`)
     }
     
-    return result
+    return ["JIRA-" + jiraId, result]
 }
+

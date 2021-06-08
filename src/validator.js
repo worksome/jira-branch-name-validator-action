@@ -1,4 +1,4 @@
-export default function(branchName) {
+export default function(branchName, prTitle, commits) {
 
     let result = []
 
@@ -34,6 +34,16 @@ export default function(branchName) {
     if (branchName.length > 100) {
         result.push(`Description after JIRA id has to be shorter than 100 characters, found ${branchName}.`)
     }
+
+    if (prTitle.search("JIRA-" + jiraId) < 0) {
+        result.push(`PR title <${prTitle}> does not contain Jira ID inferred from branch name, JIRA-${jiraId}`)
+    }
+
+    Array.from(commits).forEach(c => {
+        if (c.commit.message.search("JIRA-" + jiraId) < 0) {
+             result.push(`Commit message <${c.commit.message}> does not contain Jira ID inferred from branch name, JIRA-${jiraId}`)
+        }
+    })
     
     return result
 }

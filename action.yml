@@ -1,8 +1,14 @@
-name: 'Validate JIRA branch name'
-description: 'Validates if the branch name contains JIRA'
+name: 'Validate JIRA-ID branch name and consistency across PR title and commits'
+description: 'Validates if the branch name contains JIRA-ID - and PR title and commits have the same one'
 inputs:
   branch-name:
     description: The name of the branch to validate against
+    required: true
+  pr-title:
+    description: The title of the PR to validate
+    required: true
+  commits:
+    description: The Github API response JSON containing the commits of the PR
     required: true
 runs:
   using: 'node12'

@@ -19,7 +19,7 @@ run();
 
 async function run(){
   const branchName = await getCurrentBranch();
-  const results = validateBranchName(branchName);
+  const [, results] = validateBranchName(branchName);
   
   results.forEach(message => {
     console.log(message);
@@ -38,3 +38,4 @@ async function getCurrentBranch() {
     const branches = branchesOutput.stdout
     return branches.split('\n').find(b => b.trim().charAt(0) === '*' ).trim().substring(2)
 }
+

@@ -2,10 +2,18 @@ import validateBranchName from './validator';
 const core = require('@actions/core')
 
 let branchName = core.getInput("branch-name")
-core.info(`Received the following branch name ${branchName}.`)
-core.info("The format should be `JIRA-123_fixing-bug`.")
+let prTitle = core.getInput("pr-title")
+let commits = core.getInput("commits")
 
-const results = validateBranchName(branchName)
+core.info(`Received the following branch name: ${branchName}.`)
+core.info("The format should be `JIRA-123_fixing-bug`.")
+core.info(`Received the following PR title: ${prTitle}`)
+core.info("Should contain the same JIRA ID.")
+core.info("Received the following commits information:")
+core.info(JSON.stringify(commits, undefined, 2))
+core.info("Commit message should contain the same JIRA ID as above.")
+
+const results = validateBranchName(branchName, prTitle, commits)
 
 results.forEach(message => {
     core.setFailed(message)

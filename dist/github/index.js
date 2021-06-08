@@ -1,9 +1,8 @@
-module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 604:
+/***/ 777:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -16,7 +15,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(245);
+const utils_1 = __nccwpck_require__(855);
 /**
  * Commands
  *
@@ -88,7 +87,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 127:
+/***/ 181:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -109,9 +108,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const command_1 = __nccwpck_require__(604);
-const file_command_1 = __nccwpck_require__(352);
-const utils_1 = __nccwpck_require__(245);
+const command_1 = __nccwpck_require__(777);
+const file_command_1 = __nccwpck_require__(679);
+const utils_1 = __nccwpck_require__(855);
 const os = __importStar(__nccwpck_require__(87));
 const path = __importStar(__nccwpck_require__(622));
 /**
@@ -332,7 +331,7 @@ exports.getState = getState;
 
 /***/ }),
 
-/***/ 352:
+/***/ 679:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -349,7 +348,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(747));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(245);
+const utils_1 = __nccwpck_require__(855);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -367,7 +366,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 245:
+/***/ 855:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -389,68 +388,6 @@ function toCommandValue(input) {
 }
 exports.toCommandValue = toCommandValue;
 //# sourceMappingURL=utils.js.map
-
-/***/ }),
-
-/***/ 803:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
-
-// ESM COMPAT FLAG
-__nccwpck_require__.r(__webpack_exports__);
-
-// CONCATENATED MODULE: ./src/validator.js
-/* harmony default export */ function validator(branchName) {
-
-    let result = []
-
-    if (!branchName.startsWith('JIRA')) {
-        result.push(`Branch doesn't start with \`JIRA\` prefix, found ${branchName}.`)
-    }
-
-    branchName = branchName.substring(4)
-    if (!branchName.startsWith('-')) {
-        result.push(`Separator after prefix is not \`-\`, found ${branchName.substring(0, 1)}.`)
-    }
-
-    branchName = branchName.substring(1);
-    const rawJiraId = branchName.match(/^\d*/)[0]
-    const jiraId = parseInt(rawJiraId)
-    if (isNaN(jiraId) || jiraId === 0) {
-        result.push(`JIRA id is not a positive number, found ${rawJiraId}.`)
-    }
-    if (rawJiraId.length !== jiraId.toString().length) {
-        result.push(`JIRA id has leading zeros, found ${rawJiraId}.`)
-    }
-
-    branchName = branchName.substring(rawJiraId.length)
-    if (!branchName.startsWith('_')) {
-        result.push(`Separator after JIRA id is not \`_\`, found ${branchName.substring(0, 1)}.`)
-    }
-
-    branchName = branchName.substring(1)
-    if (!/^[a-zA-Z0-9\-_]+$/.test(branchName)) {
-        result.push(`Description after JIRA id should use hyphen or underscore as word separator, found ${branchName}.`)
-    }
-
-    if (branchName.length > 100) {
-        result.push(`Description after JIRA id has to be shorter than 100 characters, found ${branchName}.`)
-    }
-    
-    return result
-}
-// CONCATENATED MODULE: ./src/index.js
-
-const core = __nccwpck_require__(127)
-
-let branchName = core.getInput("branch-name")
-core.info(`Received the following branch name ${branchName}.`)
-core.info("The format should be `JIRA-123_fixing-bug`.")
-
-const results = validator(branchName)
-
-results.forEach(message => {
-    core.setFailed(message)
-})
 
 /***/ }),
 
@@ -483,8 +420,9 @@ module.exports = require("path");;
 /******/ 	// The require function
 /******/ 	function __nccwpck_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
@@ -520,10 +458,91 @@ module.exports = require("path");;
 /******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
-/******/ 	__nccwpck_require__.ab = __dirname + "/";/************************************************************************/
-/******/ 	// module exports must be returned from runtime so entry inlining is disabled
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(803);
+/******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+// ESM COMPAT FLAG
+__nccwpck_require__.r(__webpack_exports__);
+
+;// CONCATENATED MODULE: ./src/validator.js
+/* harmony default export */ function validator(branchName, prTitle, commits) {
+
+    let result = []
+
+    if (!branchName.startsWith('JIRA')) {
+        result.push(`Branch doesn't start with \`JIRA\` prefix, found ${branchName}.`)
+    }
+
+    branchName = branchName.substring(4)
+    if (!branchName.startsWith('-')) {
+        result.push(`Separator after prefix is not \`-\`, found ${branchName.substring(0, 1)}.`)
+    }
+
+    branchName = branchName.substring(1);
+    const rawJiraId = branchName.match(/^\d*/)[0]
+    const jiraId = parseInt(rawJiraId)
+    if (isNaN(jiraId) || jiraId === 0) {
+        result.push(`JIRA id is not a positive number, found ${rawJiraId}.`)
+    }
+    if (rawJiraId.length !== jiraId.toString().length) {
+        result.push(`JIRA id has leading zeros, found ${rawJiraId}.`)
+    }
+
+    branchName = branchName.substring(rawJiraId.length)
+    if (!branchName.startsWith('_')) {
+        result.push(`Separator after JIRA id is not \`_\`, found ${branchName.substring(0, 1)}.`)
+    }
+
+    branchName = branchName.substring(1)
+    if (!/^[a-zA-Z0-9\-_]+$/.test(branchName)) {
+        result.push(`Description after JIRA id should use hyphen or underscore as word separator, found ${branchName}.`)
+    }
+
+    if (branchName.length > 100) {
+        result.push(`Description after JIRA id has to be shorter than 100 characters, found ${branchName}.`)
+    }
+
+    if (prTitle.search("JIRA-" + jiraId) < 0) {
+        result.push(`PR title <${prTitle}> does not contain Jira ID inferred from branch name, JIRA-${jiraId}`)
+    }
+
+    commits.forEach(c => {
+        if (c.commit.message.search("JIRA-" + jiraId) < 0) {
+             result.push(`Commit message <${c.commit.message}> does not contain Jira ID inferred from branch name, JIRA-${jiraId}`)
+        }
+    })
+    
+    return result
+}
+
+;// CONCATENATED MODULE: ./src/index.js
+
+const core = __nccwpck_require__(181)
+
+let branchName = core.getInput("branch-name")
+let prTitle = core.getInput("pr-title")
+let commits = core.getInput("commits")
+
+core.info(`Received the following branch name: ${branchName}.`)
+core.info("The format should be `JIRA-123_fixing-bug`.")
+core.info(`Received the following PR title: ${prTitle}`)
+core.info("Should contain the same JIRA ID.")
+core.info("Received the following commits information:")
+core.info(JSON.stringify(commits, undefined, 2))
+commits.forEach(c => {
+  core.info("  ${c.commit.message}")
+})
+core.info("Commit message(s) should contain the same JIRA ID as above.")
+
+const results = validator(branchName, prTitle, commits)
+
+results.forEach(message => {
+    core.setFailed(message)
+})
+
+})();
+
+module.exports = __webpack_exports__;
 /******/ })()
 ;

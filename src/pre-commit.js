@@ -19,7 +19,7 @@ run();
 
 async function run(){
   const branchName = await getCurrentBranch();
-  const results = validateBranchName(branchName);
+  const [, results] = validateBranchName(branchName);
   
   results.forEach(message => {
     console.log(message);

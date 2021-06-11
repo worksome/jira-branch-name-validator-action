@@ -1,4 +1,5 @@
-#!/usr/bin/env node/******/ (() => { // webpackBootstrap
+#!/usr/bin/env node
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 

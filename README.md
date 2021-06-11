@@ -40,10 +40,21 @@ jobs:
     name: Branch Validation
     runs-on: ubuntu-latest
     steps:
-      - name: Validate JIRA branch name
-        uses: worksome/jira-branch-name-validator-action@v1.6.1
+      - uses: octokit/request-action@v2.x
+        id: get_pr_commits
+        with:
+          route: GET /repos/{owner}/{repo}/pulls/{pull_number}/commits
+          owner: worksome
+          repo: platform
+          pull_number: ${{ github.event.pull_request.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Validate JIRA branch name and PR/commit consistency
+        uses: worksome/jira-branch-name-validator-action@v1.7.1
         with:
           branch-name: ${{ github.event.pull_request.head.ref }}
+          pr-title: ${{ github.event.pull_request.title }}
+          commits: ${{ steps.get_pr_commits.outputs.data }}
 
 ```
 

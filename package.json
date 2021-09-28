@@ -1,6 +1,6 @@
 {
-  "name": "@worksome/jira-branch-name-validator",
-  "version": "1.7.3",
+  "name": "jira-branch-name-validator",
+  "version": "1.7.4",
   "description": "A GitHub action for validating if the branch name is contains JIRA id",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,9 @@
   ],
   "bin": {
     "branch-validator": "./dist/local/index.js"
+  },
+  "publishConfig": {
+    "@worksome:registry": "https://npm.pkg.github.com"
   },
   "homepage": "https://github.com/worksome/jira-branch-name-validator-action#readme",
   "dependencies": {

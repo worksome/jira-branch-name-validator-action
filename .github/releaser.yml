@@ -1,0 +1,13 @@
+name: Releaser
+
+on:
+  release:
+    types: [ published, edited ]
+
+jobs:
+  actions-tagger:
+    name: Action Tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish tag
+        uses: Actions-R-Us/actions-tagger@v2

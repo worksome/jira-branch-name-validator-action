@@ -1,4 +1,5 @@
 # JIRA Branch Name Validation Action
+
 A GitHub action for validating if the branch name contains a JIRA id (as format) and whether the same JIRA id is contained in the PR title and commit message(s).
 
 The same code is npm-packaged and used for local pre-commit validation of the branch name, only (via git hooks / husky). The PR title and commits are not checked locally because they are not relevant at this step in the workflow (PR doesn't have to exist when still developing locally and local commit messages can be whatever the developer wants - i.e. before squash and push).
@@ -11,11 +12,15 @@ The same code is npm-packaged and used for local pre-commit validation of the br
 
 ### `pr-title`
 
-**Required** The title of the PR to validate
+**Required** The title of the PR to validate.
 
 ### `commits`
 
-**Required** The Github API response JSON containing the commits of the PR
+**Required** The GitHub API response JSON containing the commits of the PR.
+
+### `prefix`
+
+**Optional** The Jira project prefix (default is `JIRA`).
 
 ***
 
@@ -55,6 +60,7 @@ jobs:
           branch-name: ${{ github.event.pull_request.head.ref }}
           pr-title: ${{ github.event.pull_request.title }}
           commits: ${{ steps.get_pr_commits.outputs.data }}
+          prefix: JIRA
 
 ```
 

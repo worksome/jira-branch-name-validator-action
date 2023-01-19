@@ -1,4 +1,5 @@
-#!/usr/bin/env node/******/ (() => { // webpackBootstrap
+#!/usr/bin/env node
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
@@ -21,7 +22,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const child_process_1 = __nccwpck_require__(81);
 const validator_1 = __importDefault(__nccwpck_require__(630));
-run();
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         const branchName = yield getCurrentBranch();
@@ -37,14 +37,14 @@ function run() {
 }
 function getCurrentBranch() {
     return __awaiter(this, void 0, void 0, function* () {
-        const branchesOutput = yield (0, child_process_1.exec)('git branch');
-        if (branchesOutput.stderr !== null) {
-            throw new Error(branchesOutput.stderr.toString());
+        const { stdout, stderr } = yield exec('git branch');
+        if (stderr !== '') {
+            throw new Error(stderr);
         }
-        if (branchesOutput.stdout === null) {
+        if (stdout === '') {
             throw new Error('No output was generated from "git branch". Please try again.');
         }
-        const branchOutput = branchesOutput.stdout.toString();
+        const branchOutput = stdout.toString();
         const branches = branchOutput.split('\n');
         const branch = branches.find((branch) => branch.trim().charAt(0) === '*');
         if (!branch) {
@@ -54,6 +54,22 @@ function getCurrentBranch() {
         return branch.trim().substring(2);
     });
 }
+function exec(command, options = { cwd: process.cwd() }) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return new Promise((done, failed) => {
+            (0, child_process_1.exec)(command, Object.assign({}, options), (err, stdout, stderr) => {
+                if (err) {
+                    process.stdout.write(stdout);
+                    process.stderr.write(stderr);
+                    failed(err);
+                    return;
+                }
+                done({ stdout, stderr });
+            });
+        });
+    });
+}
+run();
 
 
 /***/ }),

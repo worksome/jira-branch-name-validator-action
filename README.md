@@ -1,6 +1,6 @@
 # JIRA Branch Name Validation Action
 
-A GitHub action for validating if the branch name contains a JIRA id (as format) and whether the same JIRA id is contained in the PR title and commit message(s).
+A GitHub action for ensuring that the branch name contains a valid JIRA id (as format) and whether the same JIRA id is contained in the PR title and commit message(s).
 
 The same code is npm-packaged and used for local pre-commit validation of the branch name, only (via git hooks / husky). The PR title and commits are not checked locally because they are not relevant at this step in the workflow (PR doesn't have to exist when still developing locally and local commit messages can be whatever the developer wants - i.e. before squash and push).
 

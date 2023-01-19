@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {ChildProcess, exec} from 'child_process';
+import {exec as cpExec} from 'child_process';
 import validateBranchName from './validator';
 
 async function run(): Promise<void> {
@@ -19,28 +19,46 @@ async function run(): Promise<void> {
 }
 
 async function getCurrentBranch(): Promise<string> {
-    const branchesOutput: ChildProcess = await exec('git branch');
+    const {stdout, stderr} = await exec('git branch');
 
-    if (branchesOutput.stderr !== null) {
-        throw new Error(branchesOutput.stderr.toString())
+    if (stderr !== '') {
+        throw new Error(stderr)
     }
 
-    if (branchesOutput.stdout === null) {
+    if (stdout === '') {
         throw new Error('No output was generated from "git branch". Please try again.')
     }
 
-    const branchOutput: string = branchesOutput.stdout.toString()
+    const branchOutput: string = stdout.toString()
 
     const branches: string[] = branchOutput.split('\n')
 
     const branch: string | undefined = branches.find((branch: string) => branch.trim().charAt(0) === '*')
 
-    if (! branch) {
+    if (!branch) {
         throw new Error('Unable to find the current branch. Please try again.')
     }
 
     // Remove "* " prefix
     return branch.trim().substring(2)
+}
+
+async function exec(
+    command: string,
+    options = {cwd: process.cwd()}
+): Promise<{ stdout: string; stderr: string }> {
+    return new Promise((done, failed) => {
+        cpExec(command, {...options}, (err, stdout, stderr) => {
+            if (err) {
+                process.stdout.write(stdout);
+                process.stderr.write(stderr);
+                failed(err);
+                return;
+            }
+
+            done({stdout, stderr});
+        });
+    });
 }
 
 run();

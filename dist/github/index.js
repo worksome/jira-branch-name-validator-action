@@ -2741,7 +2741,7 @@ function run() {
             let prefix = core.getInput('prefix');
             let prValidation = (prTitle.length > 0 && commits.length > 0);
             core.info(`Received the following branch name: ${branchName}.`);
-            core.info('The format should be `JIRA-123_fixing-bug`.');
+            core.info(`The format should be \`${prefix}-123_fixing-bug\`.`);
             let [jiraId, results] = (0, validator_1.default)(branchName, prefix);
             core.info(`Extracted the following JIRA ID from branch name: ${jiraId}`);
             if (prValidation) {

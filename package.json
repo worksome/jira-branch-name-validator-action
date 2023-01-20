@@ -1,7 +1,7 @@
 {
   "name": "@worksome/jira-branch-name-validator",
   "version": "1.7.5",
-  "description": "A GitHub action for validating if the branch name is contains JIRA id",
+  "description": "A GitHub action for ensuring that the branch name contains a valid JIRA id",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/worksome/jira-branch-name-validator-action.git"
+    "url": "https://github.com/worksome/jira-branch-name-validator-action.git"
   },
   "author": "",
   "license": "MIT",

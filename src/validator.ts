@@ -25,8 +25,8 @@ export default function (branchName: string, prefix: string): [string, string[]]
     }
 
     branchName = branchName.substring(rawJiraId.length)
-    if (!branchName.startsWith('_')) {
-        result.push(`Separator after JIRA id is not \`_\`, found ${branchName.substring(0, 1)}.`)
+    if (!branchName.startsWith('-')) {
+        result.push(`Separator after JIRA id is not \`-\`, found ${branchName.substring(0, 1)}.`)
     }
 
     branchName = branchName.substring(1)

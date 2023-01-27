@@ -1,6 +1,6 @@
 {
-  "name": "@worksome/jira-branch-name-validator",
-  "version": "1.8.2",
+  "name": "@FRohrbaugh/jira-branch-name-validator",
+  "version": "1.8.3",
   "description": "A GitHub action for ensuring that the branch name contains a valid JIRA id",
   "main": "index.js",
   "scripts": {
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/worksome/jira-branch-name-validator-action.git"
+    "url": "https://github.com/FRohrbaugh/jira-branch-name-validator-action.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/worksome/jira-branch-name-validator-action/issues"
+    "url": "https://github.com/FRohrbaugh/jira-branch-name-validator-action/issues"
   },
   "files": [
     "dist"
@@ -23,9 +23,9 @@
     "branch-validator": "./dist/local/index.js"
   },
   "publishConfig": {
-    "@worksome:registry": "https://npm.pkg.github.com"
+    "@FRohrbaugh:registry": "https://npm.pkg.github.com"
   },
-  "homepage": "https://github.com/worksome/jira-branch-name-validator-action#readme",
+  "homepage": "https://github.com/FRohrbaugh/jira-branch-name-validator-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.6"
   },

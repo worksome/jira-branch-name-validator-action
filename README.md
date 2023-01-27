@@ -1,5 +1,7 @@
 # JIRA Branch Name Validation Action
 
+NOTE: I adjusted this repo for testing purposes on some personal repos. I would highly recommend going to the soce of worksome/jira-branch-name-validator-action. I am only making slight changes to allow '-' to work in the code. Thank you
+
 A GitHub action for ensuring that the branch name contains a valid JIRA id (as format) and whether the same JIRA id is contained in the PR title and commit message(s).
 
 The same code is npm-packaged and used for local pre-commit validation of the branch name, only (via git hooks / husky). The PR title and commits are not checked locally because they are not relevant at this step in the workflow (PR doesn't have to exist when still developing locally and local commit messages can be whatever the developer wants - i.e. before squash and push).

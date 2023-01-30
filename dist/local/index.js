@@ -99,8 +99,8 @@ function default_1(branchName, prefix) {
         result.push(`JIRA id has leading zeros, found ${rawJiraId}.`);
     }
     branchName = branchName.substring(rawJiraId.length);
-    if (!branchName.startsWith('_')) {
-        result.push(`Separator after JIRA id is not \`_\`, found ${branchName.substring(0, 1)}.`);
+    if (!/^[\-_]/.test(branchName)) {
+        result.push(`Separator after JIRA id is not \`_\` or \`-\`, found ${branchName.substring(0, 1)}.`);
     }
     branchName = branchName.substring(1);
     if (!/^[a-zA-Z0-9\-_]+$/.test(branchName)) {

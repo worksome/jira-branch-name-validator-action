@@ -14,7 +14,7 @@ inputs:
     description: The Jira project prefix.
     default: 'JIRA'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/github/index.js'
 branding:
   icon: 'git-branch'

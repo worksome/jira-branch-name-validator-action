@@ -57,7 +57,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Validate JIRA branch name and PR/commit consistency
-        uses: worksome/jira-branch-name-validator-action@v2.0.0
+        uses: worksome/jira-branch-name-validator-action@v2
         with:
           branch-name: ${{ github.event.pull_request.head.ref }}
           pr-title: ${{ github.event.pull_request.title }}
